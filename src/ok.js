@@ -1,9 +1,4 @@
-import moment from 'moment';
-import './App.css';
-// import useData from './useData';
-const d2d = require('degrees-to-direction')
-
-const hardData = [
+[
   {
       "dt": 1654880400,
       "sunrise": 1654853014,
@@ -322,55 +317,3 @@ const hardData = [
       "uvi": 2
   }
 ]
-
-function App() {
-//  const {weather} = useData()
-  // console.log(weather);
-
-    const dailyData = hardData.map(info => {
-      const date = new Date(info.dt * 1000)
-      const icon = `http://openweathermap.org/img/wn/${info.weather[0].icon}.png`
-      return <div>
-        <div>{moment.unix(info.dt).format('dddd')}</div> 
-        <div>{`${date.getMonth()}/${date.getDate()}`}</div>
-        <div>{info.weather[0].description}</div>
-        <img src={icon}/>
-        <div>{Math.round(info.temp.day)}</div>
-        <div>feels like:  {Math.round(info.feels_like.day)}</div>
-        <div>night:  {Math.round(info.temp.night)}</div>
-        <div>POP: {info.pop * 100}%</div>
-        <div>wind(km/h): {`${Math.round(info.wind_speed)} ${d2d(info.wind_deg)}`}</div>
-      </div>
-      
-    })
-    // console.log(dailyData);
-  return (
-    <div className="App">
-      {dailyData}
-    </div>
-  );
-}
-
-export default App;
-
-
-
-// let unix_timestamp = response.data.current.dt;
-// // Create a new JavaScript Date object based on the timestamp
-// // multiplied by 1000 so that the argument is in milliseconds, not seconds.
-// var date = new Date(unix_timestamp * 1000);
-// // Hours part from the timestamp
-// var hours = date.getHours();
-// // Minutes part from the timestamp
-// var minutes = "0" + date.getMinutes();
-// // Seconds part from the timestamp
-// var seconds = "0" + date.getSeconds();
-// console.log('date',date);
-// console.log('getdate',date.getDate());
-// console.log('getday',date.getDay());
-// console.log('getMonth',date.getMonth());
-
-// // Will display time in 10:30:23 format
-// var formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
-
-// console.log(formattedTime);

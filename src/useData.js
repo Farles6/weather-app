@@ -11,8 +11,7 @@ const useData = () => {
     const getData = async () => {
       const response = await axios.get(url);
       
-      setWeather(prev => {
-        return {...prev, data: response.data}})
+      setWeather({data: response.data})
         
       
       };
