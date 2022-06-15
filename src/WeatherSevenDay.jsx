@@ -328,7 +328,7 @@ export default function WeatherSevenDay(props) {
   console.log(weather);
   // weather.data.daily
   
-  const dailyData = weather.data.daily.filter((info, i) => i <= 7).map((info, i) => {
+  const dailyData = weather.data.daily.filter((info, i) => i < 7).map((info, i) => {
     const date = new Date(info.dt * 1000)
     const icon = `http://openweathermap.org/img/wn/${info.weather[0].icon}.png`
     return <div className="weekly-data-single" key={i}>

@@ -3,11 +3,16 @@
   align-content: center;
   justify-content: space-around;
   align-items: center;
+  position: fixed;
+  top: 50%;
+  bottom: 50%;
+  right: 5%;
+  left: 5%;
 }
 
 .weekly-data-single {
   border: 3px black solid;
-  padding: 1px;
+  padding: 4px;
   margin: 1px;
   background-color: cornflowerblue;
 }

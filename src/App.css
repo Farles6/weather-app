@@ -2,5 +2,16 @@
   text-align: center;
 }
 
-
+.button {
+  position: fixed;
+  top: 50%;
+  bottom: 50%;
+  right: 5%;
+  left: 5%;
+}
+button {
+  background-color: mintcream;
+  border-radius: 20px;
+  padding: 6px 10px
+}
 

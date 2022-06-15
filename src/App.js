@@ -9,7 +9,9 @@ function App() {
   
  return (
     <div className="App">
+      <div className='button'>
       {weather.button === 'Loading' && <button onClick={button}>Weekly Weather</button>}
+      </div>
       {weather.button === 'Pressed' &&<WeatherSevenDay weather={weather} />}
     </div>
   );
