@@ -1,5 +1,4 @@
 import moment from "moment";
-// import useData from './useData';
 import './WeatherSevenDay.css'
 const d2d = require('degrees-to-direction')
 
@@ -323,14 +322,16 @@ const hardData = [
   }
 ]
 
-export default function WeatherSevenDay() {
-//  const {weather} = useData()
-  // console.log(weather);
+export default function WeatherSevenDay(props) {
+ const { weather } = props
+ console.log('props', props);
+  console.log(weather);
   // weather.data.daily
-  const dailyData = hardData.map(info => {
+  
+  const dailyData = weather.data.daily.filter((info, i) => i <= 7).map((info, i) => {
     const date = new Date(info.dt * 1000)
     const icon = `http://openweathermap.org/img/wn/${info.weather[0].icon}.png`
-    return <div className="weekly-data-single" key={info.dt}>
+    return <div className="weekly-data-single" key={i}>
       <div>{moment.unix(info.dt).format('dddd')}</div> 
       <div>{`${date.getMonth()}/${date.getDate()}`}</div>
       <div>{info.weather[0].description}</div>
@@ -340,14 +341,12 @@ export default function WeatherSevenDay() {
       <div>night:  {Math.round(info.temp.night)}</div>
       <div>POP: {info.pop * 100}%</div>
       <div>wind(km/h): {`${Math.round(info.wind_speed)} ${d2d(info.wind_deg)}`}</div>
-
     </div>
-    
   })
 
   return (
     <div className="weekly-data">
-      {dailyData}
+      {weather && dailyData}
     </div>
   )
 }
