@@ -1,0 +1,12 @@
+.weekly-data {
+  display: flex;
+  align-content: center;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.weekly-data-single {
+  border: 3px black solid;
+  padding: 1px;
+  margin: 1px;
+}

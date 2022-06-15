@@ -1,4 +1,9 @@
-[
+import moment from "moment";
+// import useData from './useData';
+import './WeatherSevenDay.css'
+const d2d = require('degrees-to-direction')
+
+const hardData = [
   {
       "dt": 1654880400,
       "sunrise": 1654853014,
@@ -317,3 +322,32 @@
       "uvi": 2
   }
 ]
+
+export default function WeatherSevenDay() {
+//  const {weather} = useData()
+  // console.log(weather);
+  // weather.data.daily
+  const dailyData = hardData.map(info => {
+    const date = new Date(info.dt * 1000)
+    const icon = `http://openweathermap.org/img/wn/${info.weather[0].icon}.png`
+    return <div className="weekly-data-single" key={info.dt}>
+      <div>{moment.unix(info.dt).format('dddd')}</div> 
+      <div>{`${date.getMonth()}/${date.getDate()}`}</div>
+      <div>{info.weather[0].description}</div>
+      <img src={icon}/>
+      <div>{Math.round(info.temp.day)}</div>
+      <div>feels like:  {Math.round(info.feels_like.day)}</div>
+      <div>night:  {Math.round(info.temp.night)}</div>
+      <div>POP: {info.pop * 100}%</div>
+      <div>wind(km/h): {`${Math.round(info.wind_speed)} ${d2d(info.wind_deg)}`}</div>
+
+    </div>
+    
+  })
+
+  return (
+    <div className="weekly-data">
+      {dailyData}
+    </div>
+  )
+}
