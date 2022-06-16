@@ -12,7 +12,12 @@ function App() {
       <div className='button'>
       {weather.button === 'Loading' && <button onClick={button}>Weekly Weather</button>}
       </div>
-      {weather.button === 'Pressed' &&<WeatherSevenDay weather={weather} />}
+      <div>
+       
+      {weather.button === 'Pressed' &&<div>
+       <strong>Current Weather for Fergus, Ontario {Math.round(weather.data.current.temp)}<span>&#176;C</span></strong>
+       <WeatherSevenDay weather={weather} /></div>}
+      </div>
     </div>
   );
 }

@@ -336,9 +336,9 @@ export default function WeatherSevenDay(props) {
       <div>{`${date.getMonth()}/${date.getDate()}`}</div>
       <div>{info.weather[0].description}</div>
       <img src={icon}/>
-      <div>{Math.round(info.temp.day)}</div>
-      <div>feels like:  {Math.round(info.feels_like.day)}</div>
-      <div>night:  {Math.round(info.temp.night)}</div>
+      <div>{Math.round(info.temp.day)}<span>&#176;C</span></div>
+      <div>feels like:  {Math.round(info.feels_like.day)}<span>&#176;C</span></div>
+      <div>night:  {Math.round(info.temp.night)}<span>&#176;C</span></div>
       <div>POP: {info.pop * 100}%</div>
       <div>wind(km/h): {`${Math.round(info.wind_speed)} ${d2d(info.wind_deg)}`}</div>
     </div>
